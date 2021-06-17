@@ -2,7 +2,9 @@ name: Release App
 on:
   push:
     tags:
-      - 'DCV-*'
+      - 'v0.*'
+      - 'v1.*'
+      - 'v2.*'
 jobs:
   release:
     runs-on: ubuntu-latest
