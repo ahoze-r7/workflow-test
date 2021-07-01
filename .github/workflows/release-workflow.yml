@@ -38,3 +38,5 @@ jobs:
         with:
           releaseVersion: $RELEASE_VERSION
           releaseHash: $RELEASE_HASH
+          gitUserName: "alcide jenkins"
+          gitUserEmail: "alcidejenkins@rapid7.com"
