@@ -30,7 +30,7 @@ jobs:
         with:
           repository: ahoze-r7/avidan-github-actions
           path: github-actions
-          ref: refs/tags/v1
+          ref: refs/tags/v2
       - name: run create-release-branch-from-tag action
         id: createReleaseBranchFromTagCompositeAction
         uses: ./github-actions/create-release-branch-from-tag
