@@ -25,7 +25,7 @@ pipeline {
     }
 
     parameters {
-        string(name: 'param1', defaultValue: "$param1", description: 'Number of minutes pod will stay idle post build'),
+        string(name: 'param1', defaultValue: "$param1", description: 'Number of minutes pod will stay idle post build')
         string(name: 'param2', defaultValue: "$param2", description: 'Number of minutes pod will stay idle post build')
     }
 
