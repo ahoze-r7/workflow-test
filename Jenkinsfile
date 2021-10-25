@@ -1,8 +1,8 @@
 
 
 String verRegex = /^DCV-(\d{1}[.]\d{1}|\d{1}[.]\d{1}[.]\d{1})/
-String verRC = /^([0-9]+).([0-9]+).([0-9]+)-(rc[0-9]+)/
-String verGA = /^([0-9]+).([0-9]+).([0-9]+)/
+String verRC = /^release\/([0-9]+).([0-9]+).([0-9]+)-(rc[0-9]+)/
+String verGA = /^release\/([0-9]+).([0-9]+).([0-9]+)/
 
 println("branch: ${env.BRANCH_NAME}")
 
