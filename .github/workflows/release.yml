@@ -28,7 +28,7 @@ jobs:
       - name: Checkout github-actions repo
         uses: actions/checkout@v2-beta
         with:
-          repository: rapid7/alcide-github-actions
+          repository: ahoze-r7/avidan-github-actions
           path: github-actions
           ref: refs/tags/v1
       - name: run create-release-for-divvy-from-tag action
