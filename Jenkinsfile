@@ -25,10 +25,13 @@ pipeline {
     }
 
     parameters {
-        string(name: 'param1', defaultValue: "$param1", description: 'Number of minutes pod will stay idle post build')
-        string(name: 'param2', defaultValue: "$param2", description: 'Number of minutes pod will stay idle post build')
+        string(name: 'PARAM1', defaultValue: '', description: 'Number of minutes pod will stay idle post build')
+        string(name: 'PARAM2', defaultValue: '', description: 'Number of minutes pod will stay idle post build')
     }
 
+    params.PARAM1 = "$param1";
+    params.PARAM2 = "$param2";
+    
     stages {
         stage('Build') {
             steps {
