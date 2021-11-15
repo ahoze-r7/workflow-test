@@ -16,10 +16,9 @@ jobs:
       - name: Git clone the repository
         uses: actions/checkout@v1
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@master
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::889956758113:role/jenkins_ecr_role.dev.divvy-dev
-          role-session-name: samplerolesession
           aws-region: ${{ env.AWS_REGION }}
       - name:  describe ECR
         run: |
