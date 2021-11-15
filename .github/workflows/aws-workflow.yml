@@ -10,7 +10,7 @@ permissions:
       id-token: write
       contents: write    # This is required for actions/checkout@v1
 jobs:
-  S3PackageUpload:
+  AWSEcr:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone the repository
