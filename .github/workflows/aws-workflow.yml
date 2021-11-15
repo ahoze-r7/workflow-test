@@ -8,7 +8,7 @@ env:
 # permission can be added at job level or workflow level    
 permissions:
       id-token: write
-      contents: read    # This is required for actions/checkout@v1
+      contents: write    # This is required for actions/checkout@v1
 jobs:
   AWSEcr:
     runs-on: ubuntu-latest
@@ -16,7 +16,7 @@ jobs:
       - name: Git clone the repository
         uses: actions/checkout@v1
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@b8c74de
         with:
           role-to-assume: arn:aws:iam::889956758113:role/jenkins_ecr_role.dev.divvy-dev
           aws-region: ${{ env.AWS_REGION }}
