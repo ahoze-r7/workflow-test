@@ -1,0 +1,40 @@
+name: main
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Get branch name
+        id: branch-name
+        uses: tj-actions/branch-names@v4.9
+
+      - name: Checkout source tree
+        uses: actions/checkout@v2
+
+      - name: Login to GCR
+        uses: docker/login-action@v1
+        with:
+          registry: gcr.io
+          username: _json_key
+          password: ${{ secrets.GCR_JSON_KEY }}
+
+      - name: Configure git to have access to 'common-agent' private repo
+        run: git config --global url.https://ilan-r7:${{ secrets.NODE_REPO_ACCESS_TOKEN }}@github.com/rapid7.insteadOf https://github.com/rapid7
+
+      - name: Create devbox container, and run 'make all' in it
+        # This is a WA for the problem where actions don't allow container TTY with error: 'the input device is not a TTY'
+        shell: 'script -q -e -c "bash {0}"'
+        run: |
+          make devbox-shell CMD='"make all"'
+
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ steps.branch-name.outputs.current_branch }}
+          path: artifacts/coverage/*coverage.html
+          retention-days: 14
